@@ -8,7 +8,6 @@ var startupX = ["Uber",
                 "Grindr"];
 
 var startupY = ["alcoholics",
-                "perverts",
                 "sumo-wrestlers",
                 "ex-girlfriends",
                 "pre-school teachers",
@@ -25,6 +24,7 @@ $(function() {
     var $favoriteBtn = $("#favorite");
     var $printFavoriteBtn = $("#print");
     var $favList = $("#favoriteList")
+    var $addedLabel = $("#added");
 
     var favoriteStartups = [];
 
@@ -38,14 +38,17 @@ $(function() {
     $favoriteBtn.on('click', function() {
       var currentStartup = $printNameHere.text();
       favoriteStartups.push(currentStartup);
-      console.log(favoriteStartups);
+
+      if ($addedLabel.is(":visible")) {
+        return;
+      }
+      $addedLabel.show();
+      setTimeout(function() {
+        $addedLabel.hide();
+      }, 3000);
     });
 
     $printFavoriteBtn.on('click', function() {
-      // $.each(favoriteStartups, function(i) {
-      //     var li = $('<li/>').appendTo($favList);
-      //     $('<a/>').text(favoriteStartups[i]).appendTo(li);
-      // });
       $favList.empty();
       for (i = 0; i < favoriteStartups.length; i++) {
         $favList.append('<li>' + favoriteStartups[i] + '</li>');

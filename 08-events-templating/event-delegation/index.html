@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My To Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>To Do List</h1>
+  <ul id="todo-list"></ul>
+
+  <form>
+    <input id="new-item" />
+    <input id="new-item-button" type="submit" value="Create new thing"></submit>
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="app.js" async defer></script>
+
+  <script id="todo-item-template" type="text/x-handlebars-template">
+    <li class="todo-item">
+      {{item}}
+      <span class="complete-task">complete task</span>
+    </li>
+  </script>
+
+</body>
+</html>
