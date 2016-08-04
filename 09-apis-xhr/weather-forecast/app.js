@@ -32,8 +32,7 @@ $(function() {
           var convertedTemperature = convertToFahrenheit(temperature);
           console.log(convertedTemperature);
 
-          // var weatherDescription = jsonObject.weather.description;
-          // return weatherDescription;
+          //put adding img into this success function
         },
 
         error: function(jqXHR) {

@@ -1,0 +1,49 @@
+body {
+  background-color: #f2f2f2;
+  font-family: helvetica, sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h1 span {
+  font-weight: normal;
+}
+
+/*#logout {
+  display: none;
+}*/
+
+.current-user {
+  display: none;
+  font-size: 14px;
+  font-weight: bold;
+  list-style: none;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  height: 1000px;
+}
+
+.image {
+  /*flex: 1 1 200px;
+  margin: 3px;
+  background-size: cover;
+  */
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  display: block;
+}
+
+.image-results-view {
+  display: none;
+}
+
+.btn-default {
+  margin-top: 4em;
+}

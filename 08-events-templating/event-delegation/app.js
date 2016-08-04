@@ -67,21 +67,6 @@ $(document).ready(function() {
     var liHtml = todoTemplate(itemObject);
     console.log(liHtml);
     $todoList.append(liHtml);
-    // var $li = $('<li class="todo-item">').html(todo);
-    //
-    // var $completeTaskLink = $('<span class="complete-task"> complete task</span>');
-
-    // REFACTOR
-    // this adds a click handler to each 'complete task' link. Use event
-    // delegation instead.
-
-    // $completeTaskLink.on('click', function(event) {
-    //   $li.addClass('completed');
-    //   $completeTaskLink.html('');
-    // });
-
-    // $li.append($completeTaskLink);
-    //$todoList.append($li);
   }
 
   /**

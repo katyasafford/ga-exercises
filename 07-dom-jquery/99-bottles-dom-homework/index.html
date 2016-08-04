@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>99 Bottles!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body>
-    <button type="button" id="start">Show lyrics!</button>
-    <button type="button" id="clear">Clear lyrics</button>
+    <form class="form-inline">
+      <div class="form-group">
+        <button type="button" id="start" class="btn btn-default">Show lyrics!</button>
+        <button type="button" id="clear" class="btn btn-default">Clear lyrics</button>
 
-    <button type="button" id="stepThrough">Step Through</button>
-    <label for="">How many beers to start with?</label>
-    <input type="text" id="startAmount" />
+        <button type="button" id="stepThrough" class="btn btn-default">Step Through</button>
+        <label for="">How many beers to start with?</label>
+        <input type="text" id="startAmount" class="form-control" />
 
-    <label for="take_down">Take down</label>
-    <input type="text" id="take_down" />
-
+        <button type="button" id="reset" class="btn btn-default">Restock back to 99</button>
+      </div>
+    </form>
     <ul id="song">
     </ul>
 
