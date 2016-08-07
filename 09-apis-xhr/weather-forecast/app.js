@@ -3,7 +3,7 @@ var giphyKey = "dc6zaTOxFJmzC";
 
 function convertToFahrenheit(tempInKelvin) {
   var tempInFahrenghet = (tempInKelvin * 9/5) - 459.67;
-  return tempInFahrenghet;
+  return tempInFahrenghet.toFixed(2);
 }
 
 $(function() {
@@ -11,8 +11,14 @@ $(function() {
   var $countryCodeInput = $('#countryCode');
   var $submitButton = $('#submit');
   var $giphyContainer = $('#giphyContainer');
+  var $temp = $('#temperature');
 
   $submitButton.on('click', function() {
+    if (!$cityInput.val()) {
+      alert("Enter city first!");
+      return;
+    }
+
     var city = $cityInput.val();
     var country = $countryCodeInput.val();
 
@@ -23,16 +29,19 @@ $(function() {
         url: 'http://api.openweathermap.org/data/2.5/weather?q=' + geoCode + '&appid=' + openWeatherMapKey,
 
         success: function(data) {
-          // if I skip line "jsonOutput = JSON.stringify(data);"
-          // and just try to parse 'data' right away, I get an error.
-          // WHy do I have to stringify first?
+          //console.log(data);
           jsonOutput = JSON.stringify(data);
           jsonObject = JSON.parse(jsonOutput);
           var temperature = jsonObject.main.temp;
           var convertedTemperature = convertToFahrenheit(temperature);
-          console.log(convertedTemperature);
+          //console.log(convertedTemperature);
+          $temp.empty();
+          $temp.text(convertedTemperature + " F");
 
-          //put adding img into this success function
+          var weatherDescription = jsonObject.weather[0].description;
+          console.log("weather description: " + weatherDescription);
+
+          getRandomGiphyUrl(weatherDescription);
         },
 
         error: function(jqXHR) {
@@ -45,34 +54,23 @@ $(function() {
             console.log(msg);
           }
         }
-
     });
-
-
-    // $("#giphyContainer").attr("src", giphyUrl);
-    // getRandomGiphy("american+psycho");
-
   });
 
 function getRandomGiphyUrl(description) {
   $giphyContainer.empty();
-
   $.ajax({
     method: 'GET',
     url: 'http://api.giphy.com/v1/gifs/random?api_key=' + giphyKey + '&tag=' + description,
     success: function(data) {
+      //console.log(data);
       jsonOutput = JSON.stringify(data);
       jsonObject = JSON.parse(jsonOutput);
       var giphyUrl = jsonObject.data.image_url;
-      console.log(giphyUrl);
+
+      $("#giphyContainer").attr("src", giphyUrl);
     },
-    error: function() {},
   });
-
-
 }
-
-
-
 
 });

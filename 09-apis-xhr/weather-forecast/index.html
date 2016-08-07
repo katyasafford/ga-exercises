@@ -3,16 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body>
-      <form>
-        <input type="text" id="city" placeholder="enter city" />
-        <input type="text" id="countryCode" placeholder="enter country code" />
-        <button type="button" id="submit">Show me weather!</button>
-      </form>
+      <div id="wrapper">
+        <form class="form-inline">
+          <input type="text" id="city" class="form-control" placeholder="enter city" />
+          <input type="text" id="countryCode" class="form-control" placeholder="enter country code" />
+          <button type="button" id="submit" class="btn btn-default">Show me weather!</button>
+        </form>
 
-      <img id='giphyContainer' />
+        <div id="temperature"></div>
 
+        <img id='giphyContainer' />
+    </div>
       <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
       <script src="app.js" charset="utf-8"></script>
   </body>

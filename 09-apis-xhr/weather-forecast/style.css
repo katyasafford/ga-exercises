@@ -1,0 +1,28 @@
+/*body {
+  padding: 10px;
+}*/
+
+#wrapper {
+  text-align: center;
+  padding-top: 10%;
+}
+
+.form-inline {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#submit {
+  font-weight: bold;
+}
+
+#giphyContainer {
+  display: block;
+  margin: 0 auto;
+  padding-top: 1%;
+}
+
+#temperature {
+  font-weight: bold;
+  padding-top: 1%;
+}
