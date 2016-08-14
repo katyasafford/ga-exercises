@@ -74,7 +74,7 @@ $(document).ready(function () {
                   'mi';
         console.log(geo);
 
-        _500px.api('/photos/search', {geo: geo, rpp: 42, image_size: 3}, function(response) {
+        _500px.api('/photos/search', {geo: geo, rpp: 40, image_size: 3}, function(response) {
           console.log(response);
 
           var photos = response.data.photos;
