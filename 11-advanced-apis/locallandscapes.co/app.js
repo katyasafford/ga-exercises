@@ -4,7 +4,7 @@ $(document).ready(function () {
    var $imageResultsView = $('.image-results-view');
    var $images = $('#images');
    var $currentUser = $('.current-user');
-   //var $logoutBtn = $('#logout');
+   var $logoutBtn = $('#logout');
 
    // initialize the SDK with our API key
   _500px.init({
@@ -22,7 +22,6 @@ $(document).ready(function () {
       if(status == 'authorized') {
         load();
         showUserInfo();
-        //logout();
       }
       else {
         console.log("You are not authorized");
@@ -30,11 +29,20 @@ $(document).ready(function () {
     });
   });
 
-  // function logout() {
-  //   $logoutBtn.show();
-  // }
+  _500px.on('authorization_obtained', function () {
+    $logoutBtn.show();
+  });
+
+  $logoutBtn.on('click', function() {
+    _500px.logout();
+    $currentUser.empty();
+    $currentUser.hide();
+    $signInView.show();
+    $imageResultsView.hide();
+  })
 
   function showUserInfo() {
+
     $currentUser.show();
 
     _500px.api('/users', function(response) {
@@ -66,7 +74,7 @@ $(document).ready(function () {
                   'mi';
         console.log(geo);
 
-        _500px.api('/photos/search', {geo: geo, rpp: 40, image_size: 3}, function(response) {
+        _500px.api('/photos/search', {geo: geo, rpp: 42, image_size: 3}, function(response) {
           console.log(response);
 
           var photos = response.data.photos;

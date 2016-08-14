@@ -5,15 +5,18 @@ body {
 
 h1 {
   font-weight: bold;
+  display: inline-block;
 }
 
 h1 span {
   font-weight: normal;
 }
 
-/*#logout {
+#logout {
   display: none;
-}*/
+  float: right;
+  margin: 20px 0 0 0;
+}
 
 .current-user {
   display: none;
